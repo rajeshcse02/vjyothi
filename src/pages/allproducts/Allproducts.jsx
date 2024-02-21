@@ -1,5 +1,5 @@
 // Import necessary dependencies and components
-import React, { useContext, useEffect,useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { LuHeart } from "react-icons/lu";
 import Filter from "../../components/filter/Filter";
@@ -7,7 +7,6 @@ import Layout from "../../components/layout/Layout";
 import myContext from "../../context/data/myContext";
 import "../allproducts/allProducts.css";
 import { addToFavorites, removeFromFavorites } from "../../redux/favoriteSlice";
-
 
 function Allproducts() {
   // Accessing context values
@@ -17,7 +16,6 @@ function Allproducts() {
   const [products, setProducts] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const favorites = useSelector((state) => state.favorites) ?? [];
-
 
   // Effect to scroll to the top of the window when the component mounts
   useEffect(() => {
@@ -83,7 +81,7 @@ function Allproducts() {
                 .filter(
                   (obj) => !filterPrice || obj.price.includes(filterPrice)
                 )
-                .reverse( )
+                .reverse()
                 .map((item, index) => {
                   const { title, price, imageUrl, id, discountedPrice } = item;
                   const discountPrice = calculateDiscountedPrice(
@@ -91,13 +89,7 @@ function Allproducts() {
                     discountedPrice
                   );
                   return (
-                    <div
-                      onClick={() =>
-                        (window.location.href = `/productinfo/${id}`)
-                      }
-                      key={index}
-                      className="p-4 md:w-1/4 drop-shadow-lg"
-                    >
+                    <div key={index} className="p-4 md:w-1/4 drop-shadow-lg">
                       <div
                         className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
                         style={{
@@ -107,11 +99,13 @@ function Allproducts() {
                         }}
                       >
                         <div className="flex justify-center cursor-pointer">
-                          <img
-                            className="rounded-2xl object-cover object-top w-80 h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out"
-                            src={imageUrl}
-                            alt="product"
-                          />
+                          <Link to={`/productinfo/${item.id}`}>
+                            <img
+                              className="rounded-2xl object-cover object-top w-80 h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out"
+                              src={imageUrl}
+                              alt="product"
+                            />
+                          </Link>
                         </div>
                         <div className="p-5 border-t-2">
                           <h2
@@ -139,13 +133,10 @@ function Allproducts() {
                             </span>
                           </p>
                         </div>
-                        
                       </div>
                     </div>
-                    
                   );
                 })}
-                
             </div>
           </div>
         </section>

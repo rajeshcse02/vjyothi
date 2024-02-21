@@ -13,7 +13,7 @@ import "../cart/cart.css";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const context = useContext(myContext)
+  const context = useContext(myContext);
   const { mode } = context;
   // const [products, setProducts] = useState({});
   // const [quantity, setQuantity] = useState(1);
@@ -213,14 +213,13 @@ function Cart() {
                     color: mode === "dark" ? "white" : "",
                   }}
                 >
-                  <img
-                    onClick={() =>
-                      (window.location.href = `productinfo/${id}`)
-                    }
-                    src={imageUrl}
-                    alt="product-image"
-                    className="w-full rounded-lg sm:w-40 sm:h-40 cursor-pointer"
-                  />
+                  <Link to={`/productinfo/${item.id}`}>
+                    <img
+                      src={imageUrl}
+                      alt="product-image"
+                      className="w-full rounded-lg sm:w-40 sm:h-40 cursor-pointer"
+                    />
+                  </Link>
                   <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                     <div className="mt-5 sm:mt-0">
                       <h2

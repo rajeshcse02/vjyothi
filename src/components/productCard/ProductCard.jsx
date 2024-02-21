@@ -17,7 +17,6 @@ function ProductCard({ item, mode }) {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  
   const calculateDiscountedPrice = (price, discountPercentage) => {
     const discountAmount = (price * discountPercentage) / 100;
     return price - discountAmount;
@@ -28,11 +27,8 @@ function ProductCard({ item, mode }) {
     return null; // or handle the case where item is undefined
   }
 
-  const { title, price, imageUrl,discountedPrice } = item;
-  const discountPrice = calculateDiscountedPrice(
-    price,
-    discountedPrice
-  );
+  const { title, price, imageUrl, discountedPrice } = item;
+  const discountPrice = calculateDiscountedPrice(price, discountedPrice);
 
   return (
     <div className="p-4 md:w-1/4 md:flex-shrink-0 drop-shadow-lg flex items-center justify-center mx-auto my-auto">
@@ -43,15 +39,14 @@ function ProductCard({ item, mode }) {
           color: mode === "dark" ? "white" : "",
         }}
       >
-        <div
-          onClick={() => (window.location.href = `/productinfo/${item.id}`)}
-          className="flex justify-center cursor-pointer"
-        >
-          <img
-            className="rounded-2xl object-cover object-top w-80 h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out"
-            src={imageUrl}
-            alt="blog"
-          />
+        <div className="flex justify-center cursor-pointer">
+          <Link to={`/productinfo/${item.id}`}>
+            <img
+              className="rounded-2xl object-cover object-top w-80 h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out"
+              src={imageUrl}
+              alt="blog"
+            />
+          </Link>
         </div>
         <div className="p-5 border-t-2">
           <h2
@@ -70,7 +65,13 @@ function ProductCard({ item, mode }) {
             className="leading-relaxed mb-3 font-bold text-xl text-pink-500"
             style={{ color: mode === "dark" ? "rose" : "" }}
           >
-            ₹{discountPrice} <span className="ml-1 text-lg font-normal text-gray-700 line-through"style={{ color: mode === "dark" ? "white" : "" }}>₹{price}</span>
+            ₹{discountPrice}{" "}
+            <span
+              className="ml-1 text-lg font-normal text-gray-700 line-through"
+              style={{ color: mode === "dark" ? "white" : "" }}
+            >
+              ₹{price}
+            </span>
           </p>
           {/* <div className=" flex justify-center">
             <button
@@ -89,10 +90,7 @@ function ProductCard({ item, mode }) {
 
 function Product() {
   const context = useContext(myContext);
-  const {
-    mode,
-    product
-  } = context;
+  const { mode, product } = context;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -115,7 +113,7 @@ function Product() {
           {product
             .filter((obj) => obj.title.toLowerCase())
             .reverse()
-            .slice(0,4)
+            .slice(0, 4)
             .map((item, index) => (
               <ProductCard key={index} item={item} mode={mode} />
             ))}
