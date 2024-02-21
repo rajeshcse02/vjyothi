@@ -3,6 +3,7 @@ import myContext from "../../context/data/myContext";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function ProductCard({ item, mode }) {
   const dispatch = useDispatch();

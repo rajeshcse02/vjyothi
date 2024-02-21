@@ -1,11 +1,10 @@
 // Import necessary dependencies and components
 import React, { useContext, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { LuHeart } from "react-icons/lu";
 import Filter from "../../components/filter/Filter";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/data/myContext";
 import "../allproducts/allProducts.css";
+import { Link } from "react-router-dom";
 import { addToFavorites, removeFromFavorites } from "../../redux/favoriteSlice";
 
 function Allproducts() {
@@ -14,8 +13,6 @@ function Allproducts() {
   const { mode, product, searchkey, filterType, filterPrice } = context;
   const { loading, setLoading } = context;
   const [products, setProducts] = useState(null);
-  const [isFavorite, setIsFavorite] = useState(false);
-  const favorites = useSelector((state) => state.favorites) ?? [];
 
   // Effect to scroll to the top of the window when the component mounts
   useEffect(() => {
