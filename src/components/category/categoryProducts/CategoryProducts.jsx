@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Layout from '../../layout/Layout'
 import myContext from "../../../context/data/myContext";
-import "../categoryProducts/categoryProducts.css"
+import "../categoryProducts/categoryProducts.css";
+import { Link } from "react-router-dom";
 
 function CategoryProducts() {
   const context = useContext(myContext);
@@ -62,9 +63,6 @@ function CategoryProducts() {
                   );
                   return (
                     <div
-                      onClick={() =>
-                        (window.location.href = `/productinfo/${id}`)
-                      }
                       key={index}
                       className="p-4 md:w-1/4 drop-shadow-lg"
                     >
@@ -77,11 +75,13 @@ function CategoryProducts() {
                         }}
                       >
                         <div className="flex justify-center cursor-pointer">
+                        <Link to={`/productinfo/${item.id}`}>
+
                           <img
                             className="rounded-2xl object-cover object-top w-80 h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out"
                             src={imageUrl}
                             alt="product"
-                          />
+                          /></Link>
                         </div>
                         <div className="p-5 border-t-2">
                           <h2

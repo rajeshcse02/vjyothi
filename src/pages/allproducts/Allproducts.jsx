@@ -1,18 +1,16 @@
 // Import necessary dependencies and components
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import Filter from "../../components/filter/Filter";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/data/myContext";
 import "../allproducts/allProducts.css";
 import { Link } from "react-router-dom";
-import { addToFavorites, removeFromFavorites } from "../../redux/favoriteSlice";
 
 function Allproducts() {
   // Accessing context values
   const context = useContext(myContext);
   const { mode, product, searchkey, filterType, filterPrice } = context;
   const { loading, setLoading } = context;
-  const [products, setProducts] = useState(null);
 
   // Effect to scroll to the top of the window when the component mounts
   useEffect(() => {
@@ -24,28 +22,6 @@ function Allproducts() {
     const discountAmount = (price * discountPercentage) / 100;
     return price - discountAmount;
   };
-
-  const toggleFavorite = () => {
-    if (products) {
-      const existingProductIndex = favorites.findIndex(
-        (item) => item.id === products.id
-      );
-
-      if (existingProductIndex !== -1) {
-        dispatch(removeFromFavorites({ ...products }));
-        setIsFavorite(false);
-      } else {
-        dispatch(addToFavorites({ ...products }));
-        setIsFavorite(true);
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (products) {
-      setIsFavorite(favorites.some((item) => item.id === products.id));
-    }
-  }, [favorites, products?.title]);
 
   // Render component JSX
   return (
