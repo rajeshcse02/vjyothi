@@ -15,7 +15,8 @@ function Order() {
     <Layout>
       <div className="h-full pt-10">
       <div className="lg:w-1/2 w-full mb-6 lg:mb-10 pl-10">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900" 
+        style={{ color: mode === "dark" ? "white" : "" }}>
               Your Orders
             </h1>
             <div className="h-1 w-20 bg-pink-600 rounded"></div>
@@ -76,7 +77,7 @@ function Order() {
                             Quantity : {item.quantity}
                           </p>
                           <p>Ordered On : {order.date}</p>
-                          <p className="mt-4 text-green-800">
+                          <p className="mt-4 text-green-800" >
                             The order will be delivered within 1 to 7 days.
                           </p>
                         </div>

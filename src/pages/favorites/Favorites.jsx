@@ -1,18 +1,25 @@
 // Favorites.jsx
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import Layout from "../../components/layout/Layout";
 import { Link } from "react-router-dom";
+import myContext from "../../context/data/myContext";
 
 function Favorites() {
   const favorites = useSelector((state) => state.favorites) || [];
+
+  const context = useContext(myContext);
+  const { mode } = context;
 
   return (
     <Layout>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-10 mx-auto">
           <div className="lg:w-1/2 w-full mb-6 lg:mb-10">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+            <h1
+              className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
+              style={{ color: mode === "dark" ? "white" : "" }}
+            >
               Your Favourites
             </h1>
             <div className="h-1 w-20 bg-pink-600 rounded"></div>
@@ -33,10 +40,16 @@ function Favorites() {
                         alt={item.title}
                       />
                       <div className="p-6">
-                        <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                        <h2
+                          className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                          style={{ color: mode === "dark" ? "white" : "" }}
+                        >
                           V Jyothi
                         </h2>
-                        <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                        <h1
+                          className="title-font text-lg font-medium text-gray-900 mb-3"
+                          style={{ color: mode === "dark" ? "white" : "" }}
+                        >
                           {item.title}
                         </h1>
                       </div>

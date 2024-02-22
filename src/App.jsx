@@ -24,6 +24,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Allproducts from "./pages/allproducts/Allproducts";
 import Favorites from "./pages/favorites/Favorites";
 import CategoryProducts from "./components/category/categoryProducts/CategoryProducts";
+import Weaver from "./pages/weavers/weavers"
 import Return from "./pages/returnpolicy/returnPolicy";
 import './index.css'
 
@@ -87,6 +88,7 @@ function App() {
           <Route path="/*" element={<NoPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/weavers" element={<Weaver />} />
           <Route path="/returnpolicy" element={<Return />} />
 
         </Routes>

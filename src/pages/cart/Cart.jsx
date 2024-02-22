@@ -401,7 +401,7 @@ function Cart() {
               Help Handlooms !
             </p>
             <input
-              className="border m-4 border-gray-400 rounded-2xl w-1/8 p-2 pl-4"
+              className="border m-4 border-gray-400 rounded-2xl w-40 p-2 pl-4"
               style={{ color: mode === "dark" ? "black" : "" }}
               placeholder="Enter the Amount"
               value={funds}
@@ -412,7 +412,7 @@ function Cart() {
               style={{ color: mode === "dark" ? "white" : "" }}
             >
               Know more about{" "}
-              <Link to="/nopage" className="text-pink-700 hover:text-pink-500">
+              <Link to="/weavers" className="text-pink-700 hover:text-pink-500">
                 {" "}
                 Handlooms
               </Link>

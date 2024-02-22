@@ -15,8 +15,6 @@ function Navbar() {
 
   const user = JSON.parse(localStorage.getItem("user"));
 
-
-
   // console.log(user.user.email)
 
   const logout = () => {
@@ -72,6 +70,15 @@ function Navbar() {
                   </button>
                 </div>
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                  <div className="flow-root mb-5">
+                    <Link
+                      to={"/weavers"}
+                      className="text-lg font-bold text-pink-700 "
+                      style={{ color: mode === "dark" ? "rose" : "" }}
+                    >
+                      Handlooms
+                    </Link>
+                  </div>
                   <div className="flow-root mb-5">
                     <Link
                       to={"/allproducts"}
@@ -240,6 +247,13 @@ function Navbar() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  <Link
+                    to={"/weavers"}
+                    className="text-lg font-bold text-pink-700 hover:text-pink-500"
+                    style={{ color: mode === "dark" ? "rose" : "" }}
+                  >
+                    Handlooms
+                  </Link>
                   <Link
                     to={"/allproducts"}
                     className="text-sm font-medium text-gray-700 "
