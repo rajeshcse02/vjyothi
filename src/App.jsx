@@ -9,6 +9,7 @@ import {
 import Home from "./pages/home/Home";
 import ContactUsPage from "./pages/contact/Contact";
 import AboutPage from "./pages/about/About";
+import ProfilePage from "./components/profile/Profile";
 import Order from "./pages/order/Order";
 import Cart from "./pages/cart/Cart";
 import Dashboard from "./pages/admin/dashboard/Dashboard";
@@ -54,6 +55,14 @@ function App() {
             }
           />
           <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/dashboard"
             element={
               <ProtectedRouteForAdmin>
@@ -61,6 +70,7 @@ function App() {
               </ProtectedRouteForAdmin>
             }
           />
+
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -112,7 +122,7 @@ export const ProtectedRoute = ({ children }) => {
 const ProtectedRouteForAdmin = ({ children }) => {
   const admin = JSON.parse(localStorage.getItem("user"));
 
-  if (admin.user.email === "rajesh2kkid@gmail.com") {
+  if (admin.user.email === "vjyothi4989@gmail.com") {
     return children;
   } 
   else  {

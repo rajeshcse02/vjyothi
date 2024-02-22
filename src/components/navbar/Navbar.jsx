@@ -5,17 +5,54 @@ import { FiSun } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { RxCross2 } from "react-icons/rx";
+import {  getDocs, query, where, collection } from "firebase/firestore";
 import { useSelector } from "react-redux";
+import { fireDB } from "../../fireabase/FirebaseConfig";
 
 function Navbar() {
   const context = useContext(myContext);
   const { mode, toggleMode, product } = context;
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
   const [open, setOpen] = useState(false);
 
   const user = JSON.parse(localStorage.getItem("user"));
 
-  // console.log(user.user.email)
+  // console.log(user.user.id)
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // Retrieve email from localStorage
+        const userEmail = user?.user?.email;
+        if (!userEmail) {
+          setError("Email not found in localStorage.");
+          return;
+        }
+
+        // Query Firestore to find the user document with the matching email
+        const q = query(collection(fireDB, "users"), where("email", "==", userEmail));
+        const querySnapshot = await getDocs(q);
+        if (querySnapshot.empty) {
+          setError("User not found with the provided email.");
+          return;
+        }
+
+        // Retrieve the user's name from the first document in the query result
+        querySnapshot.forEach((doc) => {
+          setName(doc.data().name);
+          setEmail(userEmail);
+        });
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        setError("Error fetching user data.");
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const logout = () => {
     localStorage.clear("user");
@@ -50,7 +87,7 @@ function Navbar() {
               leaveTo="-translate-x-full"
             >
               <Dialog.Panel
-                className="relative flex w-full max-w-xs flex-col overflow-y-auto z-10 bg-white backdrop-filter backdrop-blur-lg bg-opacity-50 pb-12 shadow-xl"
+                className="relative flex w-full max-w-xs flex-col overflow-y-auto z-10 bg-white backdrop-filter backdrop-blur-lg bg-opacity-50 pb-5 shadow-xl"
                 style={{
                   backgroundColor: mode === "dark" ? "rgb(40, 44, 52)" : "",
                   color: mode === "dark" ? "white" : "",
@@ -68,6 +105,10 @@ function Navbar() {
                       style={{ color: mode === "dark" ? "white" : "" }}
                     />
                   </button>
+                </div>
+                
+                <div className="mt-10 ml-4 text-lg mb-5 ">
+                  Hi, {name}
                 </div>
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <div className="flow-root mb-5">
@@ -128,7 +169,7 @@ function Navbar() {
                     ""
                   )}
 
-                  {user?.user?.email === "rajesh2kkid@gmail.com" ? (
+                  {user?.user?.email === "vjyothi4989@gmail.com" ? (
                     <div className="flow-root">
                       <Link
                         to={"/dashboard"}
@@ -144,6 +185,13 @@ function Navbar() {
 
                   {user ? (
                     <div className="flow-root">
+                      <a
+                        href="/profile"
+                        className="-m-2 block p-2 font-bold text-lg pb-4 text-gray-900 cursor-pointer"
+                        style={{ color: mode === "dark" ? "white" : "" }}
+                      >
+                        Profile
+                      </a>
                       <a
                         onClick={logout}
                         className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
@@ -289,7 +337,7 @@ function Navbar() {
                     </Link>
                   )}
 
-                  {user?.user?.email === "rajesh2kkid@gmail.com" ? (
+                  {user?.user?.email === "vjyothi4989@gmail.com" ? (
                     <Link
                       to={"/dashboard"}
                       className="text-sm font-medium text-gray-700 "
@@ -302,13 +350,22 @@ function Navbar() {
                   )}
 
                   {user ? (
-                    <a
-                      onClick={logout}
-                      className="text-sm font-medium text-gray-700 cursor-pointer  "
-                      style={{ color: mode === "dark" ? "white" : "" }}
-                    >
-                      Logout
-                    </a>
+                    <>
+                      <a
+                        onClick={logout}
+                        className="text-sm font-medium text-gray-700 cursor-pointer  "
+                        style={{ color: mode === "dark" ? "white" : "" }}
+                      >
+                        Logout
+                      </a>
+                      <a href="/profile">
+                        <img
+                          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                          alt=""
+                          className="block h-auto w-8 flex-shrink-0 rounded-full"
+                        />
+                      </a>
+                    </>
                   ) : (
                     ""
                   )}
