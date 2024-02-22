@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useContext } from "react";
+import myContext from "../../context/data/myContext";
 import Layout from "../../components/layout/Layout";
 import "../weavers/weavers.css";
 const Weaver = () => {
+    const context = useContext(myContext);
+    const {mode} = context;
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <Layout>
-      <div className="bg-gray-100 min-h-screen">
+      <div className="min-h-screen" style={{ color: mode === "dark" ? "white" : "" }}>
         <main className="container mx-auto py-8">
           {/* Handlooms Section */}
           <section className="flex flex-wrap items-center justify-between">
