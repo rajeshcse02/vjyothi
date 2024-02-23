@@ -39,6 +39,9 @@ function Footer() {
                   <Link to={'/returnpolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Cancellation and Refund</Link>
                 </li>
                 <li>
+                  <Link to={'/shippingandrefund'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Shipping and Refund</Link>
+                </li>
+                <li>
                   <Link to={'/about'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>About</Link>
                 </li>
                 <li>

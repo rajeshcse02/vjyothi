@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../context/data/myContext";
 import { toast } from "react-toastify";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, fireDB } from "../../fireabase/FirebaseConfig";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 import Loader from "../../components/loader/Loader";
@@ -14,6 +14,8 @@ function Signup() {
 
   const context = useContext(myContext);
   const { loading, setLoading } = context;
+
+  const navigate = useNavigate();
 
   const signup = async () => {
     setLoading(true);
@@ -47,7 +49,9 @@ function Signup() {
           time: Timestamp.now(),
         };
         await addDoc(userRef, newUser);
-        toast.success("Signup Successful");
+        const result = await signInWithEmailAndPassword(auth, email, password);
+        localStorage.setItem("user", JSON.stringify(result));
+        navigate("/");
         setName("");
         setEmail("");
         setPassword("");
