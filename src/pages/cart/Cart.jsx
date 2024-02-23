@@ -131,13 +131,13 @@ function Cart() {
     const totalWithFunds = grandTotal + parseFloat(funds);
 
     var options = {
-      key: "rzp_test_LAWJiTUCIAkkZi",
-      key_secret: "ctkhTQRunGcXGI4RJs7ZWfxR",
+      key: "rzp_test_qRVp09FF8QlddB",
+      key_secret: "T68ccrn24kVBEHjfCEYg1Ulw",
       amount: parseInt(totalWithFunds * 100),
       currency: "INR",
       order_receipt: "order_rcptid_" + name,
       name: "V Jyothi",
-      description: "for testing purpose",
+      description: "",
       handler: function (response) {
         console.log(response);
         toast.success("Payment Successful");
