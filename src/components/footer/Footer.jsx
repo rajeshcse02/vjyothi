@@ -33,9 +33,10 @@ function Footer() {
             </div>
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 uppercase" style={{ color: mode === 'dark' ? 'white' : '' }}>Customer Service</h2>
+              <div className="flex gap-32">
               <nav className="list-none mb-10">
                 <li>
-                  <Link to={'/returnpolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Return Policy</Link>
+                  <Link to={'/returnpolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Cancellation and Refund</Link>
                 </li>
                 <li>
                   <Link to={'/about'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>About</Link>
@@ -44,6 +45,15 @@ function Footer() {
                   <Link to={'/contact'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Contact Us</Link>
                 </li>
               </nav>
+              <nav className="list-none mb-10">
+                <li>
+                  <Link to={'/returnpolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Terms and Conditions</Link>
+                </li>
+                <li>
+                  <Link to={'/about'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Privacy Policy</Link>
+                </li>
+              </nav>
+              </div>
             </div>
 
             {/* <div className="lg:w-1/4 md:w-1/2 w-full px-4">

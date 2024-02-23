@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Layout from "../layout/Layout";
 import {  getDocs, query, where, collection } from "firebase/firestore";
 import { fireDB } from "../../fireabase/FirebaseConfig";
+import myContext from '../../context/data/myContext'
+
 
 function ProfilePage() {
+  const context = useContext(myContext);
+  const { mode } = context;
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -66,10 +71,11 @@ function ProfilePage() {
 
   return (
     <Layout>
-      <div className="max-w-lg mx-auto mt-10 p-20 bg-white shadow-md rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Profile Page</h2>
+      <div className="max-w-lg mx-auto m-10  p-20 bg-white shadow-md rounded-lg"
+       style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : ''}}>
+        <h2 className="text-2xl font-semibold mb-4" style={{ color: mode === "dark" ? "pink" : "" }}>Profile Page</h2>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block text-gray-700 text-sm font-bold mb-2" style={{ color: mode === "dark" ? "white" : "" }}>
             Name:
           </label>
           <input
@@ -80,7 +86,7 @@ function ProfilePage() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block text-gray-700 text-sm font-bold mb-2" style={{ color: mode === "dark" ? "white" : "" }}>
             Email:
           </label>
           <input
