@@ -47,10 +47,10 @@ function Footer() {
               </nav>
               <nav className="list-none mb-10">
                 <li>
-                  <Link to={'/returnpolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Terms and Conditions</Link>
+                  <Link to={'/termsandconditions'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Terms and Conditions</Link>
                 </li>
                 <li>
-                  <Link to={'/about'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Privacy Policy</Link>
+                  <Link to={'/privacypolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Privacy Policy</Link>
                 </li>
               </nav>
               </div>

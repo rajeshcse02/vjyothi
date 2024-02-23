@@ -10,6 +10,8 @@ import Home from "./pages/home/Home";
 import ContactUsPage from "./pages/contact/Contact";
 import AboutPage from "./pages/about/About";
 import ProfilePage from "./components/profile/Profile";
+import TermsAndConditionsPage from "./pages/termsandconditions/TermsAndConditions";
+import PrivacyPolicyPage from "./pages/privacypolicy/privacyPolicy";
 import Order from "./pages/order/Order";
 import Cart from "./pages/cart/Cart";
 import Dashboard from "./pages/admin/dashboard/Dashboard";
@@ -99,6 +101,8 @@ function App() {
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/weavers" element={<Weaver />} />
+          <Route path="/termsandconditions" element={<TermsAndConditionsPage />}/>
+          <Route path="/privacypolicy" element={<PrivacyPolicyPage />}/>
           <Route path="/returnpolicy" element={<Return />} />
 
         </Routes>
