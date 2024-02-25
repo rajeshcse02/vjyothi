@@ -19,14 +19,14 @@ function Cart() {
   // const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.cart) || [];
 
   const calculateDiscountedPrice = (price, discountPercentage) => {
     const discountAmount = (price * discountPercentage) / 100;
     return price - discountAmount;
   };
 
-  // console.log(cartItems);
+  console.log(cartItems);
 
   const CustomTickIcon = () => (
     <svg
@@ -192,7 +192,7 @@ function Cart() {
         </h1>
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
           <div className="rounded-lg md:w-2/3 fade-down">
-            {cartItems.map((item, index) => {
+            {cartItems.map((item) => {
               const {
                 title,
                 id,
@@ -213,7 +213,7 @@ function Cart() {
                     color: mode === "dark" ? "white" : "",
                   }}
                 >
-                  <Link to={`/productinfo/${item.id}`}>
+                  <Link to={`/productinfo/${id}`}>
                     <img
                       src={imageUrl}
                       alt="product-image"

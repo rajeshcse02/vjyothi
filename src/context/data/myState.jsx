@@ -6,6 +6,7 @@ import {
   collection,
   deleteDoc,
   doc,
+  documentId,
   getDocs,
   onSnapshot,
   orderBy,
@@ -76,11 +77,9 @@ function MyStateProvider(props) {
     try {
       // Add product to the 'products' collection in Firestore
       const productRef = collection(fireDB, "products");
-      // const storeFileRef = ref(storage, `${products.title + date}`)
-      // const uploadTask = await uploadBytesResumable(storeFileRef, `${products.}` )
-      await addDoc(productRef, products);
-      
-      // Set timeout and redirect to dashboard after successful addition
+    
+      const docRef = await addDoc(productRef, products);
+      await setDoc(docRef, { ...products, id: docRef.id }, { merge: true });
       setTimeout(() => {
         window.location.href = "/dashboard";
       }, 800);
