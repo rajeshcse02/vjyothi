@@ -284,15 +284,15 @@ function Navbar() {
               <div className="ml-4 flex lg:ml-0">
                 <Link to={"/"} className="flex">
                   <div className="flex">
-                    {/* <h1
-                      className=" text-2xl font-bold text-black  px-2 py-1 rounded"
+                    <h1
+                      className=" text-2xl font-medium text-rose-700 px-2 py-1 rounded md:tracking-[.3em]"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
-                      V Jyothi
-                    </h1> */}
-                    <img 
+                      V JYOTHI
+                    </h1>
+                    {/* <img 
                     className="md:w-1/6 w-1/2 md:ml-10"
-                    src={Logo} alt="" />
+                    src={Logo} alt="" /> */}
                   </div>
                 </Link>
               </div>
