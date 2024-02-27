@@ -26,7 +26,7 @@ function Cart() {
     return price - discountAmount;
   };
 
-  console.log(cartItems);
+  // console.log(cartItems);
 
   const CustomTickIcon = () => (
     <svg
@@ -131,8 +131,8 @@ function Cart() {
     const totalWithFunds = grandTotal + parseFloat(funds);
 
     var options = {
-      key: "rzp_test_qRVp09FF8QlddB",
-      key_secret: "T68ccrn24kVBEHjfCEYg1Ulw",
+      key: "rzp_live_MH8Fs0mkCIl4AV",
+      key_secret: "hLhn7YQ9e09HoHmKhNdb9bnE",
       amount: parseInt(totalWithFunds * 100),
       currency: "INR",
       order_receipt: "order_rcptid_" + name,

@@ -8,6 +8,7 @@ import { RxCross2 } from "react-icons/rx";
 import {  getDocs, query, where, collection } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import { fireDB } from "../../fireabase/FirebaseConfig";
+import Logo from "../../assets/images/vjyothi2.png"
 
 function Navbar() {
   const context = useContext(myContext);
@@ -282,13 +283,16 @@ function Navbar() {
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <Link to={"/"} className="flex">
-                  <div className="flex ">
-                    <h1
+                  <div className="flex">
+                    {/* <h1
                       className=" text-2xl font-bold text-black  px-2 py-1 rounded"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
                       V Jyothi
-                    </h1>
+                    </h1> */}
+                    <img 
+                    className="md:w-1/6 w-1/2 md:ml-10"
+                    src={Logo} alt="" />
                   </div>
                 </Link>
               </div>
