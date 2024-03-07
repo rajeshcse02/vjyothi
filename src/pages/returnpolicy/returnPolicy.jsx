@@ -93,17 +93,24 @@ const ReturnPolicyPage = () => {
               </a>{" "}
               or call us at{" "}
               <a
+                href="tel:+917358879434"
+                className="text-blue-600 hover:underline"
+              >
+                7358879434
+              </a>{" "}
+              /{" "}
+              <a
                 href="tel:+919894520688"
                 className="text-blue-600 hover:underline"
               >
                 9894520688
-              </a>{" "}
+              </a>
               /{" "}
               <a
-                href="tel:+919176420688"
+                href="tel:+919677979434"
                 className="text-blue-600 hover:underline"
               >
-                9176420688
+                9677979434
               </a>
               .
             </p>

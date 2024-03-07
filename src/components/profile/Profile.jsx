@@ -81,7 +81,6 @@ function ProfilePage() {
           <input
             type="text"
             value={name}
-            onChange={handleNameChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
           />
         </div>
@@ -92,7 +91,6 @@ function ProfilePage() {
           <input
             type="email"
             value={email}
-            onChange={handleEmailChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-indigo-500"
           />
         </div>

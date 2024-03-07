@@ -6,6 +6,9 @@ import { toast } from "react-toastify";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/data/myContext";
 import { LuHeart } from "react-icons/lu";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./productInfo.css";
 
 import {
@@ -121,6 +124,10 @@ function ProductInfo() {
     window.scrollTo(0, 0);
   }, []);
 
+  const settings = {
+    dots: true
+  };
+
   return (
     <Layout>
       <section className="text-gray-600 body-font overflow-hidden">
@@ -132,11 +139,28 @@ function ProductInfo() {
           ) : (
             products && (
               <div className="lg:w-4/5 mx-auto flex flex-wrap fade-down">
-                <img
+                {/* <img
                   alt="ecommerce"
                   className="lg:w-1/3 w-full lg:h-auto object-cover object-top rounded"
                   src={products.imageUrl}
-                />
+                /> */}
+                <div className="image-slider-container">
+                  <Slider {...settings}>
+                    <div>
+                      <img src={products.imageUrl} />
+                    </div>
+                    <div>
+                      <img src={products.imageUrl1} />
+                    </div>
+                    <div>
+                      <img src={products.imageUrl2} />
+                    </div>
+                    <div>
+                      <img src={products.imageUrl3} />
+                    </div>
+                  </Slider>
+                </div>
+
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2
                     className="text-sm title-font text-gray-500 tracking-widest"
@@ -201,7 +225,9 @@ function ProductInfo() {
                   <div className="ml-1 pb-5">
                     <span className="font-medium text-xl text-gray-500">
                       In stock:{" "}
-                      {products.stocks ? Math.max(0, products.stocks - quantity) : ""}
+                      {products.stocks
+                        ? Math.max(0, products.stocks - quantity)
+                        : ""}
                     </span>
                   </div>
 
@@ -212,46 +238,40 @@ function ProductInfo() {
                         ₹{products.price}
                       </span>
                     </span>
-                          {addedToCart &&
-                          cartItems.some(
-                            (item) => item.title === products.title
-                          ) ? (
-                            <Link
-                              to="/cart"
-                              className="flex ml-auto text-white border-0 bg-gray-500 py-2 px-4 focus:outline-none rounded hover:bg-violet-800"
-                            >
-                              View In Cart
-                            </Link>
-                          ) : (
-                            <button
-                              onClick={() => {
-                                addCart(products);
-                              }}
-                              disabled={products.stocks == 0}
-                              className={`flex ml-auto text-white border-0 ${
-                                products.stocks == 0
-                                  ? "bg-red-500"
-                                  : "bg-violet-500"
-                              } py-2 px-4 focus:outline-none rounded hover:bg-gray-700`}
-                            >
-                              {products.stocks == 0
-                                ? "Out of Stock"
-                                : "Add To Cart"}
-                            </button>
-                          )}
-                          <button
-                            onClick={toggleFavorite}
-                            className={`rounded-full w-10 h-10 p-0 border-0 inline-flex items-center justify-center ml-2 ${
-                              isFavorite ? "bg-red-500" : "bg-gray-400"
-                            }`}
-                          >
-                            <LuHeart
-                              fill={isFavorite ? "white" : "white"}
-                              className="w-10 h-7"
-                              strokeWidth={isFavorite ? "white" : "gray"}
-                              stroke={isFavorite ? "white" : "gray"}
-                            />
-                          </button>
+                    {addedToCart &&
+                    cartItems.some((item) => item.title === products.title) ? (
+                      <Link
+                        to="/cart"
+                        className="flex ml-auto text-white border-0 bg-gray-500 py-2 px-4 focus:outline-none rounded hover:bg-violet-800"
+                      >
+                        View In Cart
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          addCart(products);
+                        }}
+                        disabled={products.stocks == 0}
+                        className={`flex ml-auto text-white border-0 ${
+                          products.stocks == 0 ? "bg-red-500" : "bg-violet-500"
+                        } py-2 px-4 focus:outline-none rounded hover:bg-gray-700`}
+                      >
+                        {products.stocks == 0 ? "Out of Stock" : "Add To Cart"}
+                      </button>
+                    )}
+                    <button
+                      onClick={toggleFavorite}
+                      className={`rounded-full w-10 h-10 p-0 border-0 inline-flex items-center justify-center ml-2 ${
+                        isFavorite ? "bg-red-500" : "bg-gray-400"
+                      }`}
+                    >
+                      <LuHeart
+                        fill={isFavorite ? "white" : "white"}
+                        className="w-10 h-7"
+                        strokeWidth={isFavorite ? "white" : "gray"}
+                        stroke={isFavorite ? "white" : "gray"}
+                      />
+                    </button>
                   </div>
                 </div>
               </div>

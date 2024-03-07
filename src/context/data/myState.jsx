@@ -43,6 +43,9 @@ function MyStateProvider(props) {
     price: null,
     discountedPrice: null,
     imageUrl: null,
+    imageUrl1:null,
+    imageUrl2:null,
+    imageUrl3:null,
     category: null,
     stocks: null,
     description: null,
@@ -169,7 +172,7 @@ function MyStateProvider(props) {
     }
   };
 
-  // State for managing order data
+  // State for managing order dataw
   const [order, setOrder] = useState([]);
 
   // Function to get order data from Firestore

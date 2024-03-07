@@ -118,7 +118,7 @@ function Navbar() {
                       className="text-lg font-bold text-pink-700 "
                       style={{ color: mode === "dark" ? "rose" : "" }}
                     >
-                      Handlooms
+                      Our Weavers
                     </Link>
                   </div>
                   <div className="flow-root mb-5">
@@ -284,15 +284,15 @@ function Navbar() {
               <div className="ml-4 flex lg:ml-0">
                 <Link to={"/"} className="flex">
                   <div className="flex">
-                    <h1
-                      className=" text-2xl font-medium text-rose-700 px-2 py-1 rounded md:tracking-[.3em]"
+                    {/* <h1
+                      className=" text-2xl font-bold text-rose-700 md:px-2 rounded md:tracking-[.2em]"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
                       V JYOTHI
-                    </h1>
-                    {/* <img 
-                    className="md:w-1/6 w-1/2 md:ml-10"
-                    src={Logo} alt="" /> */}
+                    </h1> */}
+                    <img 
+                    className="md:w-1/4 w-1/2 md:ml-10"
+                    src={Logo} alt="" />
                   </div>
                 </Link>
               </div>
@@ -304,7 +304,7 @@ function Navbar() {
                     className="text-lg font-bold text-pink-700 hover:text-pink-500"
                     style={{ color: mode === "dark" ? "rose" : "" }}
                   >
-                    Handlooms
+                    Our Weavers
                   </Link>
                   <Link
                     to={"/allproducts"}

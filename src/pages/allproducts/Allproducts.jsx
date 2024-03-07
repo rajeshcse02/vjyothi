@@ -62,7 +62,56 @@ function Allproducts() {
                     discountedPrice
                   );
                   return (
-                    <div key={index} className="p-4 md:w-1/4 drop-shadow-lg">
+                    // <div key={index} className="p-4 md:w-1/4 w-1/2 drop-shadow-lg">
+                    //   <div
+                    //     className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
+                    //     style={{
+                    //       backgroundColor:
+                    //         mode === "dark" ? "rgb(46 49 55)" : "",
+                    //       color: mode === "dark" ? "white" : "",
+                    //     }}
+                    //   >
+                    //     <div className="flex justify-center cursor-pointer">
+                    //       <Link to={`/productinfo/${item.id}`}>
+                    //         <img
+                    //           className="rounded-2xl object-cover object-top md:w-80 md:h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out"
+                    //           src={imageUrl}
+                    //           alt="product"
+                    //         />
+                    //       </Link>
+                    //     </div>
+                    //     <div className="p-5 border-t-2">
+                    //       <h2
+                    //         className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1"
+                    //         style={{ color: mode === "dark" ? "gray" : "" }}
+                    //       >
+                    //         V Jyothi
+                    //       </h2>
+                    //       <h1
+                    //         className="title-font text-xl font-medium text-gray-900 mb-3"
+                    //         style={{ color: mode === "dark" ? "white" : "" }}
+                    //       >
+                    //         {title}
+                    //       </h1>
+                    //       <p
+                    //         className="leading-relaxed mb-3 font-bold text-xl text-pink-500"
+                    //         style={{ color: mode === "dark" ? "rose" : "" }}
+                    //       >
+                    //         ₹{discountPrice}{" "}
+                    //         <span
+                    //           className="line-through text-gray-500 text-lg ml-1 font-normal"
+                    //           style={{ color: mode === "dark" ? "white" : "" }}
+                    //         >
+                    //           ₹{price}
+                    //         </span>
+                    //       </p>
+                    //     </div>
+                    //   </div>
+                    // </div>
+                    <div
+                      key={index}
+                      className="p-4 md:w-1/4 w-1/2 drop-shadow-lg"
+                    >
                       <div
                         className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
                         style={{
@@ -74,7 +123,7 @@ function Allproducts() {
                         <div className="flex justify-center cursor-pointer">
                           <Link to={`/productinfo/${item.id}`}>
                             <img
-                              className="rounded-2xl object-cover object-top w-80 h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out"
+                              className="rounded-2xl object-cover object-top w-80 h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out max-h-48 md:max-h-80"
                               src={imageUrl}
                               alt="product"
                             />

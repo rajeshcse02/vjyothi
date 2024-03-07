@@ -398,7 +398,7 @@ function Cart() {
               className="text-lg font-bold"
               style={{ color: mode === "dark" ? "white" : "" }}
             >
-              Help Handlooms !
+              Help Our Weavers !
             </p>
             <input
               className="border m-4 border-gray-400 rounded-2xl w-40 p-2 pl-4"
@@ -414,7 +414,7 @@ function Cart() {
               Know more about{" "}
               <Link to="/weavers" className="text-pink-700 hover:text-pink-500">
                 {" "}
-                Handlooms
+                Weavers
               </Link>
             </p>
           </div>

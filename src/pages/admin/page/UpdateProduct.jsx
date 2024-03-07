@@ -56,9 +56,45 @@ function UpdateProduct() {
               onChange={(e) =>
                 setProducts({ ...products, imageUrl: e.target.value })
               }
-              name="imageurl"
+              name="imageurl1"
               className=" bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none"
-              placeholder="Product imageUrl"
+              placeholder="Product imageUrl 1"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              value={products.imageUrl1}
+              onChange={(e) =>
+                setProducts({ ...products, imageUrl1: e.target.value })
+              }
+              name="imageurl2"
+              className=" bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none"
+              placeholder="Product imageUrl 2"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              value={products.imageUrl2}
+              onChange={(e) =>
+                setProducts({ ...products, imageUrl2: e.target.value })
+              }
+              name="imageurl3"
+              className=" bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none"
+              placeholder="Product imageUrl 3"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              value={products.imageUrl3}
+              onChange={(e) =>
+                setProducts({ ...products, imageUrl3: e.target.value })
+              }
+              name="imageurl4"
+              className=" bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none"
+              placeholder="Product imageUrl 4"
             />
           </div>
           <div>

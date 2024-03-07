@@ -49,4 +49,34 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+
+  /* Base styles */
+.image-slider-container {
+  margin: 0 30; /* Center the container horizontally */
+  max-width: 400px; /* Ensure the container doesn't exceed the width of the viewport */
+}
+
+.image-slider-container .slick-prev:before,
+.image-slider-container .slick-next:before{
+  color: rgb(0, 0, 0);
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 767px) {
+  /* Styles for screens smaller than 768px (e.g., mobile devices) */
+  .image-slider-container {
+      width: 90%; /* Adjust width to fit smaller screens */
+      margin-left: auto;
+      margin-right: auto;
+      
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Styles for screens between 768px and 1023px (e.g., tablets) */
+  .image-slider-container {
+      width: 80%; /* Adjust width to fit tablet screens */
+      margin-left: auto;
+      margin-right: auto;
+  }
+}

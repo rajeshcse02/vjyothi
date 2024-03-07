@@ -62,6 +62,13 @@ const ShippingAndRefundPage = () => {
             <p className="text-lg mb-2">
               <span className="text-pink-500 font-bold">Phone:</span>{" "}
               <a
+                href="tel:+917358879434"
+                className="text-blue-600 hover:underline"
+              >
+                7358879434
+              </a>
+              <span> / </span>
+              <a
                 href="tel:+919894520688"
                 className="text-blue-600 hover:underline"
               >
@@ -69,10 +76,10 @@ const ShippingAndRefundPage = () => {
               </a>
               <span> / </span>
               <a
-                href="tel:+919176420688"
+                href="tel:+919677979434"
                 className="text-blue-600 hover:underline"
               >
-                9176420688
+                9677979434
               </a>
             </p>
           </p>
