@@ -34,7 +34,7 @@ function ProductCard({ item, mode }) {
   return (
     <div className="p-4 md:w-1/4 md:flex-shrink-0 drop-shadow-lg flex items-center justify-center mx-auto my-auto">
       <div
-        className="h-full border-2 bg-gray-200 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-100 border-opacity-60 rounded-2xl overflow-hidden"
+        className="h-full bg-gray-100 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-100 border-opacity-60 rounded-2xl overflow-hidden"
         style={{
           backgroundColor: mode === "dark" ? "rgb(46 49 55)" : "",
           color: mode === "dark" ? "white" : "",
@@ -45,7 +45,7 @@ function ProductCard({ item, mode }) {
             <img
               className="rounded-2xl object-cover object-top w-80 h-80 p-2 hover:scale-110 transition-scale-110 duration-300 ease-in-out"
               src={imageUrl}
-              alt="blog"
+              alt="saree"
             />
           </Link>
         </div>

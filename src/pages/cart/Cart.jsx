@@ -87,7 +87,18 @@ function Cart() {
     window.scrollTo(0, 0);
   }, []);
 
-  const shipping = parseInt(100);
+  const calculateShipping = (cartItems) => {
+    let totalItems = 0;
+    cartItems.forEach((item) => {
+      totalItems += item.quantity;
+    });
+  
+    // Adjust shipping cost based on total number of items
+    return totalItems * 50; // Adjust as needed based on your shipping cost per item
+  };
+  
+  // Get the shipping cost based on the cart items and their quantities
+  const shipping = calculateShipping(cartItems);
   const [funds, setFunds] = useState("50");
 
   const grandTotal = shipping + totalAmount;

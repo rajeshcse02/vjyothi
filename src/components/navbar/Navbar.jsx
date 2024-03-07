@@ -1,14 +1,15 @@
-import React, { Fragment, useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, Fragment } from "react";
 import myContext from "../../context/data/myContext";
 import { BsFillCloudSunFill } from "react-icons/bs";
 import { FiSun } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { RxCross2 } from "react-icons/rx";
-import {  getDocs, query, where, collection } from "firebase/firestore";
+import { getDocs, query, where, collection } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import { fireDB } from "../../fireabase/FirebaseConfig";
-import Logo from "../../assets/images/vjyothi2.png"
+import Logo from "../../assets/images/vjyothi2.png";
+
 
 function Navbar() {
   const context = useContext(myContext);
@@ -34,7 +35,10 @@ function Navbar() {
         }
 
         // Query Firestore to find the user document with the matching email
-        const q = query(collection(fireDB, "users"), where("email", "==", userEmail));
+        const q = query(
+          collection(fireDB, "users"),
+          where("email", "==", userEmail)
+        );
         const querySnapshot = await getDocs(q);
         if (querySnapshot.empty) {
           setError("User not found with the provided email.");
@@ -54,6 +58,41 @@ function Navbar() {
 
     fetchUserData();
   }, []);
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    // Fetch unique categories from Firebase
+    const fetchCategories = async () => {
+      try {
+        const uniqueCategories = new Set();
+        product.forEach((doc) => {
+          if (doc.category) {
+            uniqueCategories.add(doc.category.toLowerCase());
+          }
+        });
+        setCategories(Array.from(uniqueCategories));
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, [product]);
+
+  const toSentenceCase = (str) => {
+    return str.replace(
+      /\w\S*/g,
+      (word) => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
+    );
+  };
+
+  // State to manage dropdown visibility
+  const [showCategories, setShowCategories] = useState(false);
+
+  const handleMouseLeave = () => {
+    setShowCategories(false);
+  };
 
   const logout = () => {
     localStorage.clear("user");
@@ -107,10 +146,8 @@ function Navbar() {
                     />
                   </button>
                 </div>
-                
-                <div className="mt-10 ml-4 text-lg mb-5 ">
-                  Hi, {name}
-                </div>
+
+                <div className="mt-10 ml-4 text-lg mb-5 ">Hi, {name}</div>
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <div className="flow-root mb-5">
                     <Link
@@ -129,6 +166,29 @@ function Navbar() {
                     >
                       All Products
                     </Link>
+                  </div>
+                  <div className="flow-root mb-5">
+                    <button
+                      onClick={() => setShowCategories(!showCategories)}
+                      className="font-medium text-gray-900 focus:outline-none"
+                      style={{ color: mode === "dark" ? "white" : "" }}
+                    >
+                      Categories
+                    </button>
+                    {showCategories && (
+                      <div className="transition-all duration-300 ease-in-out overflow-hidden">
+                        {categories.map((category, index) => (
+                          <Link
+                            key={index}
+                            to={`/category/${category.toLowerCase()}`}
+                            className="block font-medium text-gray-900 mt-3 ml-6"
+                            style={{ color: mode === "dark" ? "white" : "" }}
+                          >
+                            {toSentenceCase(category)}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   <div className="flow-root mb-5">
                     <Link
@@ -290,9 +350,11 @@ function Navbar() {
                     >
                       V JYOTHI
                     </h1> */}
-                    <img 
-                    className="md:w-1/4 w-1/2 md:ml-10"
-                    src={Logo} alt="" />
+                    <img
+                      className="md:w-1/4 w-1/2 md:ml-10"
+                      src={Logo}
+                      alt=""
+                    />
                   </div>
                 </Link>
               </div>
@@ -313,6 +375,33 @@ function Navbar() {
                   >
                     All Products
                   </Link>
+                  <div className="relative">
+                    <div
+                      className="text-sm font-medium text-gray-700 cursor-pointer"
+                      onMouseEnter={() => setShowCategories(!showCategories)}
+                      style={{ color: mode === "dark" ? "white" : "" }}
+                    >
+                      Categories
+                    </div>
+                    {/* Dropdown content */}
+                    {showCategories && (
+                      <div
+                        className="absolute top-full left-0 mt-1 bg-white bg-opacity-80 backdrop-blur-2xl rounded-md shadow-lg min-w-48"
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        {categories.map((category, index) => (
+                          <Link
+                            key={index}
+                            to={`/category/${category.toLowerCase()}`}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            {toSentenceCase(category)}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
                   {user ? (
                     <>
                       {" "}

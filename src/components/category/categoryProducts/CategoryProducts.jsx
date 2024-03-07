@@ -41,6 +41,15 @@ function CategoryProducts() {
       ) : (
         <section className="text-gray-600 body-font fade-down">
           <div className="container px-5 py-8 md:py-16 mx-auto">
+          <div className="lg:w-1/2 w-full mb-6 lg:mb-10">
+          <h1
+            className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
+            style={{ color: mode === "dark" ? "white" : "" }}
+          >
+            {category.toUpperCase()}
+          </h1>
+          <div className="h-1 w-20 bg-pink-600 rounded"></div>
+        </div>
             <div className="flex flex-wrap -m-4 justify-center">
               {product
                 .filter(
@@ -62,6 +71,7 @@ function CategoryProducts() {
                     discountedPrice
                   );
                   return (
+                    
                     <div
                       key={index}
                       className="p-4 md:w-1/4 w-1/2 drop-shadow-lg"
