@@ -113,7 +113,7 @@ function Allproducts() {
                       className="p-4 md:w-1/4 w-1/2 drop-shadow-lg"
                     >
                       <div
-                        className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
+                        className="h-full border hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
                         style={{
                           backgroundColor:
                             mode === "dark" ? "rgb(46 49 55)" : "",
@@ -129,7 +129,7 @@ function Allproducts() {
                             />
                           </Link>
                         </div>
-                        <div className="p-5 border-t-2">
+                        <div className="p-5 border-t">
                           <h2
                             className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1"
                             style={{ color: mode === "dark" ? "gray" : "" }}

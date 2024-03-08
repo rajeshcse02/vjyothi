@@ -234,7 +234,7 @@ function ProductInfo() {
                   <div className="flex">
                     <span className="title-font font-bold text-2xl text-red-500 ml-0">
                       ₹{calculateDiscountedPrice()}
-                      <span className="line-through text-xl font-normal text-gray-500 ml-3">
+                      <span className="line-through text-xl font-normal text-gray-500 ml-1">
                         ₹{products.price}
                       </span>
                     </span>

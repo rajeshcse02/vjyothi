@@ -375,7 +375,7 @@ function Navbar() {
                   >
                     All Products
                   </Link>
-                  <div className="relative">
+                  <div className="relative ">
                     <div
                       className="text-sm font-medium text-gray-700 cursor-pointer"
                       onMouseEnter={() => setShowCategories(!showCategories)}

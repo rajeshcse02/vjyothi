@@ -49,7 +49,7 @@ function Filter() {
     <div className="">
       <div className="container mx-auto px-4 mt-5">
         <div
-          className="p-4 rounded-lg shadow border"
+          className="p-4 rounded-lg shadow "
           style={{
             backgroundColor: mode === "dark" ? "#1f2937" : "",
             color: mode === "dark" ? "white" : "black",
@@ -63,7 +63,7 @@ function Filter() {
               value={searchkey}
               onChange={(e) => setSearchkey(e.target.value)}
               placeholder="Search here"
-              className="px-8 py-4 w-full rounded-2xl border  outline-none text-sm text-red-900"
+              className="px-8 py-4 w-full rounded-2xl border outline-none text-sm text-red-900"
               style={{
                 backgroundColor: mode === "dark" ? "#374151" : "",
                 color: mode === "dark" ? "white" : "",
