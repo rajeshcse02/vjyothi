@@ -17,7 +17,6 @@ function Home() {
       <div className="fade-down">
         <HeroSection />
       </div>
-
       {/* ProductCard component displaying product cards with fade-down animation */}
       {loading ? (
         <div className="spinner">
