@@ -6,6 +6,7 @@
 ## Overview
 
 V Jyothi is an online eCommerce platform designed for a renowned handloom saree shop, "V Jyothi." The shop specializes in handcrafted sarees, woven by skilled weavers. This website was developed to expand their business reach and provide customers with an easy and convenient way to purchase their unique sarees online.
+
 ![image](https://github.com/user-attachments/assets/14c8d102-5e27-4841-945e-5b5f7c381076)
 
 
@@ -21,10 +22,11 @@ V Jyothi is an online eCommerce platform designed for a renowned handloom saree 
 
 ## Technologies Used
 
-- **Frontend**: ReactJS + Vite
+- **Frontend**: ReactJS + Vite, Tailwind CSS
 - **Backend & Hosting**: Firebase
 - **Continuous Integration/Continuous Deployment (CI/CD)**: GitHub Actions
 - **Payment Gateway**: Razorpay
+
 
 ## Installation
 
