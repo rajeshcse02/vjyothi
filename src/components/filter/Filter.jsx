@@ -45,6 +45,13 @@ function Filter() {
     setFilterPrice("");
   };
 
+  const formatCategory = (str) => {
+    return str
+      .split('_') // Split the string by underscores
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  };
+
   return (
     <div className="">
       <div className="container mx-auto px-4 mt-5">
@@ -101,7 +108,7 @@ function Filter() {
                   {[...new Set(product.map((item) => item.category))].map(
                     (category, index) => (
                       <option key={index} value={category}>
-                        {category}
+                        {formatCategory(category)}
                       </option>
                     )
                   )}
