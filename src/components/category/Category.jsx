@@ -31,6 +31,13 @@ function Category() {
     return str.replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase());
   };
 
+  const formatCategory = (str) => {
+    return str
+      .split('_') // Split the string by underscores
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  };
+
   // Render component JSX
   return (
     <div>
@@ -71,7 +78,7 @@ function Category() {
                           className="text-3xl font-bold text-gray-900 text-center"
                           style={{ color: mode === 'dark' ? 'white' : 'white' }}
                         >
-                          {toSentenceCase(category)}
+                          {formatCategory(category)}
                         </h2>
                       </div>
                     </div>

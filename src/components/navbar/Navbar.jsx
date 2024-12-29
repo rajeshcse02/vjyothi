@@ -87,6 +87,13 @@ function Navbar() {
     );
   };
 
+  const formatCategory = (str) => {
+    return str
+      .split('_') // Split the string by underscores
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  };
+
   // State to manage dropdown visibility
   const [showCategories, setShowCategories] = useState(false);
 
@@ -395,7 +402,7 @@ function Navbar() {
                             to={`/category/${category.toLowerCase()}`}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                           >
-                            {toSentenceCase(category)}
+                            {formatCategory(category)}
                           </Link>
                         ))}
                       </div>

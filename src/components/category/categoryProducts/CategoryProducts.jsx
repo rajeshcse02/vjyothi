@@ -25,6 +25,13 @@ function CategoryProducts() {
     return price - discountAmount;
   };
 
+  const formatCategory = (str) => {
+    return str
+      .split('_') // Split the string by underscores
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  };
+
   // Render component JSX
   return (
     <Layout>
@@ -46,7 +53,7 @@ function CategoryProducts() {
             className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
             style={{ color: mode === "dark" ? "white" : "" }}
           >
-            {category.toUpperCase()}
+            {formatCategory(category)}
           </h1>
           <div className="h-1 w-20 bg-pink-600 rounded"></div>
         </div>
