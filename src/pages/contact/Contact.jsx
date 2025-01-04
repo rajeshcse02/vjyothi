@@ -83,7 +83,7 @@ const ContactUsPage = () => {
               <br />
               No: 116, Pillayar Koil Street,
               <br />
-              Kasavanpettai-601101
+              Kosavanpettai-601101
               <br />
               Ponneri, Thiruvallur
             </p>
