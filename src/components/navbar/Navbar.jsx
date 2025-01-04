@@ -191,7 +191,7 @@ function Navbar() {
                             className="block font-medium text-gray-900 mt-3 ml-6"
                             style={{ color: mode === "dark" ? "white" : "" }}
                           >
-                            {toSentenceCase(category)}
+                            - {formatCategory(category)}
                           </Link>
                         ))}
                       </div>

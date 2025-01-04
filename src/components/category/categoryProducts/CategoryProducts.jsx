@@ -108,7 +108,7 @@ function CategoryProducts() {
                             V Jyothi
                           </h2>
                           <h1
-                            className="title-font text-xl font-medium text-gray-900 mb-3"
+                            className="title-font text-base lg:text-xl font-medium text-gray-900 mb-3"
                             style={{ color: mode === "dark" ? "white" : "" }}
                           >
                             {title}
