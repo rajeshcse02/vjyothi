@@ -70,7 +70,7 @@ const ContactUsPage = () => {
               Our customer service team is available to assist you Monday
               through Friday, from 9:00 AM to 5:00 PM.
             </p>
-            <h2 className="text-xl md:text-2xl font-semibold mb-4">Visit Us</h2>
+            <h2 className="text-xl md:text-2xl font-semibold mb-4">Office</h2>
             <p className="text-lg">
               Feel free to drop by our physical store during our business hours
               for an in-person shopping experience! Our store address is:

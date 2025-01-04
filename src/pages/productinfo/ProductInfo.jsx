@@ -5,6 +5,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/data/myContext";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import { LuHeart } from "react-icons/lu";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -125,7 +127,7 @@ function ProductInfo() {
   }, []);
 
   const settings = {
-    dots: true
+    dots: true,
   };
 
   return (
@@ -146,18 +148,22 @@ function ProductInfo() {
                 /> */}
                 <div className="image-slider-container">
                   <Slider {...settings}>
-                    <div>
-                      <img src={products.imageUrl} />
-                    </div>
-                    <div>
-                      <img src={products.imageUrl1} />
-                    </div>
-                    <div>
-                      <img src={products.imageUrl2} />
-                    </div>
-                    <div>
-                      <img src={products.imageUrl3} />
-                    </div>
+                    {[
+                      products.imageUrl,
+                      products.imageUrl1,
+                      products.imageUrl2,
+                      products.imageUrl3,
+                    ].map((image, index) => (
+                      <div key={index}>
+                        <Zoom>
+                          <img
+                            src={image}
+                            alt={`Slide ${index + 1}`}
+                            className="object-cover object-center w-full h-full"
+                          />
+                        </Zoom>
+                      </div>
+                    ))}
                   </Slider>
                 </div>
 
