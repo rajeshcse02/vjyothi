@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm ci && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
         env:
           VITE_RAZORPAY_KEY: ${{ secrets.VITE_RAZORPAY_KEY }}   
           VITE_RAZORPAY_KEY_SECRET: ${{ secrets.VITE_RAZORPAY_KEY_SECRET }}  
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MYCOMMERCE_30045 }}'
