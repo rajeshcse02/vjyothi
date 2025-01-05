@@ -8,7 +8,7 @@ import { RxCross2 } from "react-icons/rx";
 import { getDocs, query, where, collection } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import { fireDB } from "../../fireabase/FirebaseConfig";
-import Logo from "../../assets/images/vjyothi2.png";
+import Logo from "../../assets/images/vjyothipng3.png";
 
 
 function Navbar() {

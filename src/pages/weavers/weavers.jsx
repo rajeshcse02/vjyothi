@@ -30,7 +30,7 @@ const Weaver = () => {
             </div>
             <div className="w-full md:w-1/2 order-1 md:order-2 p-10 animate-fadeInLeft">
               <img
-                src="https://www.caleidoscope.in/wp-content/uploads/2021/07/Handlooms-of-India-1.jpg"
+                src="https://i.postimg.cc/MGQWdh9J/fig1.jpg"
                 alt="Handlooms"
                 className="w-full h-auto rounded-lg"
               />
@@ -41,7 +41,7 @@ const Weaver = () => {
           <section className="mt-8 flex flex-wrap items-center justify-between">
             <div className="w-full md:w-1/2 animate-fadeInLeft p-10 animate-fadeInLeft">
               <img
-                src="https://bsmedia.business-standard.com/_media/bs/img/article/2018-07/18/full/1531856063-1755.jpg?im=FeatureCrop,size=(826,465)"
+                src="https://i.postimg.cc/d3SpM00H/fig4.jpg"
                 alt="Weavers"
                 className="w-full h-auto rounded-lg"
               />
@@ -76,7 +76,7 @@ const Weaver = () => {
             </div>
             <div className="w-full md:w-1/2 order-1 md:order-2  p-10">
               <img
-                src="https://www.novica.com/blog/wp-content/uploads/2021/09/The-Desert-Weavers-of-India-Screen-Shot-2021-09-02-at-1.11.16-PM-1024x595.png"
+                src="https://i.postimg.cc/CL3rbXnq/fig6.jpg"
                 alt="Difficulties"
                 className="w-full h-auto rounded-lg"
               />
@@ -87,7 +87,7 @@ const Weaver = () => {
           <section className="mt-8 flex flex-wrap items-center justify-between">
             <div className="w-full md:w-1/2 animate-fadeInLeft p-10">
               <img
-                src="https://static1.squarespace.com/static/5bb6661d8dfc8c1836526d3a/t/5d2d0b8d3d3e7e0001d97e5b/1563233204691/tisserand4.jpg?format=1500w"
+                src="https://i.postimg.cc/BbdpcPb0/fig7.jpg"
                 alt="History"
                 className="w-full h-auto rounded-lg"
               />
@@ -124,7 +124,7 @@ const Weaver = () => {
             </div>
             <div className="w-full md:w-1/2 order-1 md:order-2  p-10">
               <img
-                src="https://images.news18.com/ibnlive/uploads/2023/09/handloom-weavers.jpg"
+                src="https://i.postimg.cc/SQ5gp3rv/photo1.jpg"
                 alt="Current Status"
                 className="w-full h-auto rounded-lg"
               />
