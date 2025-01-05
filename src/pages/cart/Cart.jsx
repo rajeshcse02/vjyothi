@@ -92,11 +92,11 @@ function Cart() {
     cartItems.forEach((item) => {
       totalItems += item.quantity;
     });
-  
+
     // Adjust shipping cost based on total number of items
     return totalItems * 50; // Adjust as needed based on your shipping cost per item
   };
-  
+
   // Get the shipping cost based on the cart items and their quantities
   const shipping = calculateShipping(cartItems);
   const [funds, setFunds] = useState("50");
@@ -142,8 +142,8 @@ function Cart() {
     const totalWithFunds = grandTotal + parseFloat(funds);
 
     var options = {
-      key: "rzp_live_MH8Fs0mkCIl4AV",
-      key_secret: "hLhn7YQ9e09HoHmKhNdb9bnE",
+      key: import.meta.env.VITE_RAZORPAY_KEY,
+      key_secret: import.meta.env.VITE_RAZORPAY_KEY_SECRET,
       amount: parseInt(totalWithFunds * 100),
       currency: "INR",
       order_receipt: "order_rcptid_" + name,
@@ -243,7 +243,14 @@ function Cart() {
                         className="text-sm  text-gray-900"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
-                        {description}
+                        <ul className="list-disc pl-5">
+                          {description
+                            .split("\n")
+                            .filter((point) => point.trim().length > 0) // Remove empty strings
+                            .map((point, index) => (
+                              <li key={index}>{point.trim()}</li> // Render each point
+                            ))}
+                        </ul>
                       </h2>
                       <p
                         className="mt-3 text-xl font-bold text-pink-700"
