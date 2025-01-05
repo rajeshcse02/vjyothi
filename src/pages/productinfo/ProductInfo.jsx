@@ -184,7 +184,14 @@ function ProductInfo() {
                     className="leading-relaxed border-b-2 mb-5 pb-5"
                     style={{ color: mode === "dark" ? "gray" : "" }}
                   >
-                    {products.description}
+                    <ul className="list-disc pl-5">
+                      {products.description
+                        .split("\n")
+                        .filter((point) => point.trim().length > 0) // Remove empty strings
+                        .map((point, index) => (
+                          <li key={index}>{point.trim()}</li> // Render each point
+                        ))}
+                    </ul>
                   </p>
 
                   <div className="flex items-center pb-5">
