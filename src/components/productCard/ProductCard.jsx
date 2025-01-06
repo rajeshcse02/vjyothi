@@ -41,9 +41,9 @@ function ProductCard({ item, mode }) {
         }}
       >
         {/* Overlay for "10% Offer" */}
-        {/* <div className="absolute top-2 left-2 bg-pink-500 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-md shadow-lg z-10">
+        <div className="absolute top-2 left-2 bg-pink-500 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-md shadow-lg z-10">
           10% Offer
-        </div> */}
+        </div>
 
         {/* Product Image */}
         <div className="flex justify-center cursor-pointer">
