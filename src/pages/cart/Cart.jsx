@@ -140,7 +140,7 @@ function Cart() {
       }),
     };
 
-    const totalWithFunds = grandTotal + parseFloat(funds);
+    const totalWithFunds = grandTotal + parseFloat(funds || 0);
 
     var options = {
       key: import.meta.env.VITE_RAZORPAY_KEY,
@@ -445,7 +445,7 @@ function Cart() {
                 style={{ color: mode === "dark" ? "black" : "" }}
                 placeholder="Enter the Amount"
                 value={funds}
-                onChange={(e) => setFunds(e.target.value)}
+                onChange={(e) => setFunds(e.target.value === "" ? "0" : e.target.value)}
               ></input>
               <p
                 className="text-lg font-bold"
